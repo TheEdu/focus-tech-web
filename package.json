@@ -1,0 +1,25 @@
+{
+  "name": "focus-tech-web",
+  "version": "1.0.0",
+  "description": "1. html (navbar - landing - servicios - clientes - footer) SPA 2. google analitics 3. definir contenido 4. definir propiedad 5. crear negocio en google",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheEdu/focus-tech-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheEdu/focus-tech-web/issues"
+  },
+  "homepage": "https://github.com/TheEdu/focus-tech-web#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  }
+}
