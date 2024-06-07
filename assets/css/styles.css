@@ -8,13 +8,14 @@
 }
 
 .navbar-brand {
-    font-family: "Tiny5", sans-serif;
+    /* font-family: "Tiny5", sans-serif; */
     font-family: "Oswald", sans-serif;
     /* font-family: "Mulish", sans-serif; */
     font-size: 2.1rem;
     font-weight: bold;
     font-style: italic;
-    text-shadow: 4px 2.5px 3px black;
+    text-shadow: 2.5px 2.5px 1px #4c4c4c;
+    transform: skewX(-11deg);
 }
 
 .navbar-brand>span[name=tech] {
