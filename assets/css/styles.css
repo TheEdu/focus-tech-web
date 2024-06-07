@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Tiny5&display=swap');
 
 /* Nav */
-.navbar-brand>img {
+.navbar-brand > img {
     height: 50px;
     padding-right: 4px;
     display: none;
@@ -18,7 +18,7 @@
 }
 
 .navbar-brand>span[name=tech] {
-    color: rgb(254 73 0);
+    color: #fe4900;
 }
 
 /* Home */
