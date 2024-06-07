@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Tiny5&display=swap');
+
+/* Nav */
+.navbar-brand>img {
+    height: 50px;
+    padding-right: 4px;
+    display: none;
+}
+
+.navbar-brand {
+    font-family: "Tiny5", sans-serif;
+    font-family: "Oswald", sans-serif;
+    /* font-family: "Mulish", sans-serif; */
+    font-size: 2.1rem;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 4px 2.5px 3px black;
+}
+
+.navbar-brand>span[name=tech] {
+    color: rgb(254 73 0);
+}
+
+/* Home */
+#home {
+    position: relative;
+    min-height: 100vh;
+}
+
+#home-content {
+    position: relative;
+}
+
+#home:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background-image: url('../img/img-2.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+    background-attachment: fixed;
+}
