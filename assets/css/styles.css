@@ -1,20 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Tiny5&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700');
 
 /* Nav */
-.navbar-brand > img {
+header {
+    background-color: #131212;
+}
+
+.navbar-brand>img {
     height: 50px;
     padding-right: 4px;
     display: none;
 }
 
 .navbar-brand {
-    /* font-family: "Tiny5", sans-serif; */
     font-family: "Oswald", sans-serif;
-    /* font-family: "Mulish", sans-serif; */
     font-size: 2.1rem;
     font-weight: bold;
     font-style: italic;
-    text-shadow: 2.5px 2.5px 1px #000000;
+    text-shadow: 2.5px 2.5px 1px #4b3535;
     transform: skewX(-11deg);
 }
 
@@ -24,7 +26,6 @@
 
 /* Home */
 #home {
-    position: relative;
     min-height: 100vh;
 }
 
@@ -47,3 +48,6 @@
     background-size: cover;
     background-attachment: fixed;
 }
+
+
+/* Clientes */
