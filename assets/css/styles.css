@@ -3,6 +3,7 @@
 /* Nav */
 header {
     background-color: #131212;
+    opacity: 0.9;
 }
 
 .navbar-brand>img {
@@ -48,6 +49,11 @@ header {
     background-position: 50% 0;
     background-size: cover;
     background-attachment: fixed;
+}
+
+/* Footer */
+footer {
+    background-color: #131212;
 }
 
 
