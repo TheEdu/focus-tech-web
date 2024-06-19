@@ -69,54 +69,114 @@
                         world’s most popular front-end open source toolkit, featuring Sass variables and mixins,
                         responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <input type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2"
-                            value="Productos">
-                        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Servicios</button>
-                        <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                        <input type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2" value="Productos">
+                        <input type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2" value="Servicios">
                     </div>
                 </div>
             </div>
-
-
-            <!-- <div class="carousel-wrapper m-auto">
-                <div class="carousel">
-                    <div class="item"><img src="https://logo.clearbit.com/apple.com" alt="apple"></div>
-                    <div class="item"><img src="https://logo.clearbit.com/google.com" alt="Google"></div>
-                    <div class="item"><img src="https://logo.clearbit.com/amazon.com" alt="Amazon"></div>
-                    <div class="item"><img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft"></div>
-                    <div class="item"><img src="https://logo.clearbit.com/facebook.com" alt="Facebook"></div>
-                    <div class="item"><img src="https://logo.clearbit.com/netflix.com" alt="Netflix"></div>
-                    <div class="item"><img src="https://logo.clearbit.com/tesla.com" alt="Testla"></div>
-                    <div class="item"><img src="https://logo.clearbit.com/nike.com" alt="Nike"></div>
-                    <div class="item"><img src="https://logo.clearbit.com/adidas.com" alt="Addidas"></div>
-                    <div class="item"><img src="https://logo.clearbit.com/coca-cola.com" alt="Coca-Cola"></div>
-
-                </div>
-            </div> -->
         </div>
     </section>
 
     <section id="products">
-        <div class="container">
+        <div class="container py-5">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./assets/img/img-6.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="text-white">First slide label</h5>
+                            <p class="text-white">Some representative placeholder content for the first slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/img/img-6.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="text-white">First slide label</h5>
+                            <p class="text-white">Some representative placeholder content for the first slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/img/img-6.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="text-white">First slide label</h5>
+                            <p class="text-white">Some representative placeholder content for the first slide.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
     </section>
 
 
     <section id="services">
         <div class="container">
-        </div>
-    </section>
+            <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+                <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                    <div class="my-3 py-3">
+                        <h2 class="display-5">Another headline</h2>
+                        <p class="lead">And an even wittier subheading.</p>
+                    </div>
+                    <div class="bg-body-tertiary shadow-sm mx-auto"
+                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+                </div>
+                <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                    <div class="my-3 p-3">
+                        <h2 class="display-5">Another headline</h2>
+                        <p class="lead">And an even wittier subheading.</p>
+                    </div>
+                    <div class="bg-dark shadow-sm mx-auto"
+                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+                </div>
+            </div>
 
-    <section id="contact">
-        <div class="container">
+            <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+                <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                    <div class="my-3 p-3">
+                        <h2 class="display-5">Another headline</h2>
+                        <p class="lead">And an even wittier subheading.</p>
+                    </div>
+                    <div class="bg-dark shadow-sm mx-auto"
+                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+                </div>
+                <div class="text-bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                    <div class="my-3 py-3">
+                        <h2 class="display-5">Another headline</h2>
+                        <p class="lead">And an even wittier subheading.</p>
+                    </div>
+                    <div class="bg-body-tertiary shadow-sm mx-auto"
+                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="container pt-5">
-            <div class="d-flex flex-column align-items-center flex-md-row justify-content-md-between align-items-md-end  ">
+            <div
+                class="d-flex flex-column align-items-center flex-md-row justify-content-md-between align-items-md-end  ">
                 <div class="d-flex flex-column align-items-center align-items-md-start">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.3974821286065!2d-59.03254075210574!3d-34.11057252230224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bb0b47d527e44f%3A0x515bf34d823aadcf!2sPellegrini%202136%2C%20B2800KGN%20Z%C3%A1rate%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1718431544632!5m2!1ses!2sar" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.3974821286065!2d-59.03254075210574!3d-34.11057252230224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bb0b47d527e44f%3A0x515bf34d823aadcf!2sPellegrini%202136%2C%20B2800KGN%20Z%C3%A1rate%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1718431544632!5m2!1ses!2sar"
+                        width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <span class="py-2 pb-md-0"> Pellegrini 2136, Zárate, Buenos Aires </span>
                 </div>
                 <div class="text-center text-md-end">
@@ -130,13 +190,16 @@
                 <p>&copy; 2024 FocusTech SAS. All rights reserved.</p>
                 <ul class="list-unstyled d-flex">
                     <li class="ms-3">
-                        <a class="link-body-emphasis" href="https://www.linkedin.com/company/78985575/" target="_blank"> <i class="bi bi-linkedin"></i> </a>
+                        <a class="link-body-emphasis" href="https://www.linkedin.com/company/78985575/" target="_blank">
+                            <i class="bi bi-linkedin"></i> </a>
                     </li>
                     <li class="ms-3">
-                        <a class="link-body-emphasis" href="https://www.instagram.com/focus.tech/" target="_blank"> <i class="bi bi-instagram"></i> </a>
+                        <a class="link-body-emphasis" href="https://www.instagram.com/focus.tech/" target="_blank"> <i
+                                class="bi bi-instagram"></i> </a>
                     </li>
                     <li class="ms-3">
-                        <a class="link-body-emphasis" href="https://www.facebook.com/search/top?q=focus.tech" target="_blank"> <i class="bi bi-facebook"></i> </a>
+                        <a class="link-body-emphasis" href="https://www.facebook.com/search/top?q=focus.tech"
+                            target="_blank"> <i class="bi bi-facebook"></i> </a>
                     </li>
                 </ul>
             </div>
