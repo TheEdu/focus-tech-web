@@ -13,10 +13,13 @@
 
     <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/styles.css" rel="stylesheet">
+    <link href="./assets/css/animations.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body data-bs-theme="dark">
+    <!-- Animacion  -->
+    <!-- <div class="ball"></div> -->
 
     <header class="sticky-top border-bottom">
         <div class="container">
@@ -41,7 +44,10 @@
                                 <a class="nav-link" href="#products">Productos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#services">Servicio</a>
+                                <a class="nav-link" href="#services">Servicios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#clients">Clientes</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#contact">Contacto</a>
@@ -55,14 +61,13 @@
 
     <section id="home">
         <div class="container">
-            <div id="home-content" class="row flex-lg-row-reverse align-items-center py-5">
-                <div class="col-10 col-md-8 col-lg-6">
-                    <img src="./assets/img/img-0.png" class="d-block mx-lg-auto img-fluid animated-image"
-                        alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+            <div id="home-content" class="row flex-lg-row-reverse align-items-center p-3 py-md-5">
+                <div class="d-none d-lg-flex col-lg-6">
+                    <img src="./assets/img/img-0.png" class="d-block mx-lg-auto img-fluid animated-image" loading="lazy">
                 </div>
-                <div class="col-lg-6 ps-2 pe-5">
+                <div class="col-lg-6 text-center text-lg-start px-3">
                     <h5> Siempre con vos! </h5>
-                    <h1 class="animated-title display-5 fw-bold lh-1 mb-3"> Soluciones inteligentes para tu Empresa
+                    <h1 class="animated-title display-5 mb-3"> Soluciones para tu Empresa
                     </h1>
                     <div class="falling-text">
                         <p class="lead"> Somos una empresa destinada resolver distintos tipos de problemas aplicando
@@ -70,27 +75,38 @@
                         <p class="lead">
                             Cualquiera sea la problemática, nuestras soluciones se ajustan a la complejidad de la
                             misma. </p>
-                        <p class="lead">
+                        <p class="lead d-none d-lg-flex">
                             Nuestro equipo está constituido por personas altamente calificadas como ingenieros y
                             técnicos especializados. Enfocándonos en dar una mirada global y al mismo tiempo
                             especifica de la problemática a resolver. </p>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                            <input type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2"
-                                value="Productos">
-                            <input type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2"
-                                value="Servicios">
+                        <div class="d-flex justify-content-center justify-content-lg-start">
+                            <a href="#products">
+                                <input type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2" value="Productos">
+                            </a>
+
+                            <a href="#services">
+                                <input type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2" value="Servicios">
+                            </a>
+                                
                         </div>
                     </div>
                 </div>
+
+                <div class="logo-slider" data-v-4ef8651c="">
+                    <div class="logos-slide" data-v-4ef8651c="">
+                      <img src="https://i.ibb.co/Vv5rkDK/api-partner-verzon.png" data-v-4ef8651c="">
+                      <img src="https://i.ibb.co/J399KDg/api-partner-netflix.png" data-v-4ef8651c="">
+                      <img src="https://i.ibb.co/TKT0F5L/api-partner-yelp.png" data-v-4ef8651c="">
+                      <img src="https://i.ibb.co/HG6KR89/api-partner-adobe.png" data-v-4ef8651c="">
+                      <img src="https://i.ibb.co/hMSJ1sg/api-partner-ring.png" data-v-4ef8651c="">
+                      <img src="https://i.ibb.co/4RWQcMS/api-partner-nespresso.png" data-v-4ef8651c="">
+                    </div>
+                  </div>
             </div>
         </div>
     </section>
 
     <section id="products">
-
-        <!-- Animacion  -->
-        <!-- <div class="ball"></div> -->
-
         <div class="container py-5">
             <div class="row">
                 <div class="d-none d-lg-flex col-lg-6 align-items-center">
@@ -132,7 +148,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center h-100">
-                    <div class="product-description">
+                    <div class="product-description p-3">
                         <div class="product-item">
                             <h6 class="product-title">Cámaras de Seguridad</h6>
                             <p class="lead product-text">Sistemas de cámaras. Incluyen domos mecánicos, bullets de largo
@@ -160,57 +176,48 @@
                 </div>
             </div>
         </div>
-
     </section>
 
 
     <section id="services">
-        <div class="container">
-            <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-                <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 p-3">
-                        <h2 class="display-5">Infraestructura y Redes Informáticas</h2>
-                        <p class="lead">Servicios de cableado estructurado, armado de redes informáticas, virtualización
-                            y configuración de servidores, acceso remoto a través de VPNs y configuración de centrales
-                            telefónicas IP</p>
+        <div class="container my-4">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="lead rounded bg-body-tertiary  mx-4 p-4 pb-lg-0">
+                        <h2 class="display-6 text-center"> Data Engineering <small>y</small> BI </h2>
+                        <p class="text-center"> 
+                            Exploración, depuración y transformación de datos para presentar información útil que mejore la toma de decisiones empresariales
+                        </p>
+                        <img src="./assets/img/img-8.jpg" class="d-none d-lg-block w-100 px-5">
                     </div>
-                    <div class="bg-body-tertiary shadow-sm mx-auto"
-                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
                 </div>
-
-                <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 p-3">
-                        <h2 class="display-5">Desarrollo de Software y Aplicaciones</h2>
-                        <p class="lead">Creación de aplicaciones a medida, sistemas de asistencias, sistemas de
-                            contabilidad, implementación de ERP/CRM, desarrollo de páginas web y plataformas de
-                            e-commerce, así como community management</p>
+                <div class="col-12 col-md-6">
+                    <div class="lead rounded  mx-4 p-4 pb-lg-0">
+                        <h2 class="display-6 text-center"> Infraestructura </h2>
+                        <p class="text-center">
+                            Servicios de cableado estructurado, armado de redes informáticas, virtualización y configuración de servidores y acceso remoto a través de VPNs
+                        </p>
+                        <img src="./assets/img/img-8.jpg" class="d-none d-lg-block  w-100 px-5">
                     </div>
-                    <div class="bg-dark shadow-sm mx-auto"
-                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
                 </div>
             </div>
 
-            <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-                <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 p-3">
-                        <h2 class="display-5">Desarrollo de Software y Aplicaciones</h2>
-                        <p class="lead">Creación de aplicaciones a medida, sistemas de asistencias, sistemas de
-                            contabilidad, implementación de ERP/CRM, desarrollo de páginas web y plataformas de
-                            e-commerce, así como community management</p>
-                    </div>
-                    <div class="bg-dark shadow-sm mx-auto"
-                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-                </div>
+            <hr>
 
-                <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 p-3">
-                        <h2 class="display-5">Infraestructura y Redes Informáticas</h2>
-                        <p class="lead">Servicios de cableado estructurado, armado de redes informáticas, virtualización
-                            y configuración de servidores, acceso remoto a través de VPNs y configuración de centrales
-                            telefónicas IP</p>
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-2">
+                    <div class="lead rounded bg-body-tertiary  mx-4 p-4 pb-lg-0">
+                        <h2 class="display-6 text-center"> Desarrollo de Software </h2>
+                        <p class="text-center"> Creación de aplicaciones a medida, sistemas de asistencias, sistemas de contabilidad, implementación de ERP/CRM, desarrollo de páginas web y plataformas de e-commerce, así como community management </p>
+                        <img src="./assets/img/img-8.jpg" class="d-none d-lg-block  w-100 px-5">
                     </div>
-                    <div class="bg-body-tertiary shadow-sm mx-auto"
-                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+                </div>
+                <div class="col-12 col-md-6 order-md-1">
+                    <div class="lead rounded mx-4 p-4 pb-lg-0">
+                        <h2 class="display-6 text-center"> Consultoría </h2>
+                        <p class="text-center"> Asesoría por ingenieros y analistas en virtualización de servidores con Proxmox Infrastructure, configuración de servidores de backups automatizados, y desarrollo en distintas plataformas adaptadas a las necesidades del cliente </p>
+                        <img src="./assets/img/img-8.jpg" class="d-none d-lg-block  w-100 px-5">
+                    </div>
                 </div>
             </div>
         </div>
@@ -256,6 +263,7 @@
 
     <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/scripts.js"></script>
 </body>
 
 </html>
