@@ -6,12 +6,6 @@ header {
     opacity: 0.9;
 }
 
-.navbar-brand>img {
-    height: 50px;
-    padding-right: 4px;
-    display: none;
-}
-
 .navbar-brand {
     font-family: "Oswald", sans-serif;
     font-size: 2.1rem;
@@ -47,7 +41,7 @@ h1, h2 {
     width: 100%;
     height: 100%;
     opacity: 0.1;
-    background-image: url('../img/img-2.jpg');
+    background-image: url('../img/img-2-min.webp');
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
