@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://focustech.com.ar/sitemap.xml
