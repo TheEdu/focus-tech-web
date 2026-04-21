@@ -2,261 +2,955 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="FocusTech: Creación de aplicaciones a medida, sistemas de asistencias, contabilidad, ERP/CRM, desarrollo web y e-commerce, y gestión de comunidades.">
-    <meta name="keywords"
-        content="Desarrollo de Software, ERP, CRM, e-commerce, aplicaciones a medida, sistemas de contabilidad, desarrollo web, community management, infraestructura, redes informáticas, servidores, VPNs">
-    <meta name="author" content="Eduardo Ignacio Denis">
-    <meta name="robots" content="index, follow">
-    <meta name="email" content="edigde@gmail.com">
-    <title>FocusTech</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FocusTech: Infraestructura, bases de datos y software a medida para empresas que no pueden permitirse caídas. AWS, Azure, Oracle, PostgreSQL, MongoDB.">
+  <meta name="keywords" content="infraestructura cloud, AWS, Azure, Oracle, PostgreSQL, MongoDB, soporte IT empresas, control horario digital, recibos digitales, desarrollo software Argentina">
+  <meta name="author" content="FocusTech SAS">
+  <meta name="robots" content="index, follow">
+  <title>FocusTech — Sistemas que no fallan</title>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://focustech.com.ar/">
-    <meta property="og:title" content="FocusTech - Desarrollo de Software y Servicios de Infraestructura">
-    <meta property="og:description"
-        content="FocusTech ofrece soluciones en desarrollo de software, sistemas de asistencias, contabilidad, ERP/CRM, desarrollo web y e-commerce, y gestión de comunidades.">
-    <meta property="og:image" content="https://focustech.com.ar/assets/img/img-8-min.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://focustech.com.ar/">
+  <meta property="og:title" content="FocusTech — Sistemas que no fallan">
+  <meta property="og:description" content="Infraestructura, bases de datos y software a medida para empresas que no pueden permitirse caídas.">
+  <meta property="og:image" content="https://focustech.com.ar/assets/img/img-8-min.webp">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://focustech.com.ar/">
-    <meta property="twitter:title" content="FocusTech - Desarrollo de Software y Servicios de Infraestructura">
-    <meta property="twitter:description"
-        content="FocusTech ofrece soluciones en desarrollo de software, sistemas de asistencias, contabilidad, ERP/CRM, desarrollo web y e-commerce, y gestión de comunidades.">
-    <meta property="twitter:image" content="https://focustech.com.ar/assets/img/img-8-min.webp">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://focustech.com.ar/">
+  <meta property="twitter:title" content="FocusTech — Sistemas que no fallan">
+  <meta property="twitter:description" content="Infraestructura, bases de datos y software a medida para empresas que no pueden permitirse caídas.">
+  <meta property="twitter:image" content="https://focustech.com.ar/assets/img/img-8-min.webp">
 
-    <link rel="canonical" href="https://focustech.com.ar/">
-    <link rel="icon" href="./assets/img/logo.webp" type="image/x-icon">
+  <link rel="canonical" href="https://focustech.com.ar/">
+  <link rel="icon" href="./assets/img/logo.webp" type="image/x-icon">
+  
 
-    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./assets/css/styles.css" rel="stylesheet">
-    <link href="./assets/css/animations.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/css/styles.css" rel="stylesheet">
+  <link href="./assets/css/animations.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
+  <style>
+    :root {
+      --ft-blue: #0057FF;
+      --ft-blue-glow: rgba(0, 87, 255, 0.18);
+      --ft-accent: #00E5FF;
+      --ft-dark: #080C14;
+      --ft-surface: #0F1520;
+      --ft-border: rgba(255,255,255,0.07);
+      --ft-text-muted: rgba(255,255,255,0.5);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--ft-dark);
+      color: #E8EDF5;
+    }
+
+    h1, h2, h3, h4, h5, .navbar-brand {
+      font-family: 'Syne', sans-serif;
+    }
+
+    /* ── NAV ── */
+    header {
+      background: rgba(8,12,20,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--ft-border) !important;
+    }
+    .navbar-brand span[name="focus"] { color: #fff; font-weight: 800; }
+    .navbar-brand span[name="tech"]  { color: var(--ft-blue); font-weight: 800; }
+    .nav-link { color: rgba(255,255,255,0.7) !important; font-size: .95rem; transition: color .2s; }
+    .nav-link:hover { color: #fff !important; }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--ft-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--ft-border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+      pointer-events: none;
+    }
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--ft-blue-glow) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+    .badge-pill {
+      display: inline-block;
+      background: rgba(0,87,255,0.12);
+      border: 1px solid rgba(0,87,255,0.35);
+      color: var(--ft-accent);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .35rem .9rem;
+      border-radius: 99px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+    }
+    .hero-title em { font-style: normal; color: var(--ft-blue); }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--ft-text-muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .btn-primary {
+      background: var(--ft-blue);
+      border: none;
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      padding: .75rem 1.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,87,255,0.4);
+      background: var(--ft-blue);
+    }
+    .btn-outline-light {
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      padding: .75rem 1.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      border-color: var(--ft-border);
+      color: rgba(255,255,255,0.7);
+      transition: all .15s;
+    }
+    .btn-outline-light:hover {
+      border-color: rgba(255,255,255,0.4);
+      color: #fff;
+      background: transparent;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--ft-surface);
+      border-top: 1px solid var(--ft-border);
+      border-bottom: 1px solid var(--ft-border);
+      padding: 2rem 0;
+    }
+    .stat-item { text-align: center; }
+    .stat-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+    .stat-number span { color: var(--ft-blue); }
+    .stat-label { font-size: .85rem; color: var(--ft-text-muted); margin-top: .3rem; }
+    .stat-divider { width: 1px; background: var(--ft-border); }
+
+    /* ── LOGO SLIDER ── */
+    .logo-slider {
+      overflow: hidden;
+      padding: 2.5rem 0 1rem;
+      position: relative;
+    }
+    .logo-slider::before,
+    .logo-slider::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 80px;
+      z-index: 2;
+    }
+    .logo-slider::before { left: 0; background: linear-gradient(90deg, var(--ft-dark), transparent); }
+    .logo-slider::after  { right: 0; background: linear-gradient(-90deg, var(--ft-dark), transparent); }
+    .logos-slide {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      width: max-content;
+      animation: scroll-logos 28s linear infinite;
+    }
+    .logos-slide img {
+      height: 36px;
+      opacity: .45;
+      filter: grayscale(1) brightness(2);
+      transition: opacity .3s;
+    }
+    .logos-slide img:hover { opacity: .8; }
+    @keyframes scroll-logos {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .clients-label {
+      text-align: center;
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ft-text-muted);
+      margin-bottom: .5rem;
+    }
+
+    /* ── PAIN SECTION ── */
+    .pain-section { padding: 5rem 0; }
+    .pain-card {
+      background: var(--ft-surface);
+      border: 1px solid var(--ft-border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      height: 100%;
+      transition: border-color .2s, transform .2s;
+    }
+    .pain-card:hover {
+      border-color: rgba(0,87,255,0.35);
+      transform: translateY(-3px);
+    }
+    .pain-icon {
+      font-size: 1.8rem;
+      color: var(--ft-blue);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .pain-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: .5rem; }
+    .pain-card p  { font-size: .9rem; color: var(--ft-text-muted); line-height: 1.6; margin: 0; }
+
+    /* ── SERVICES ── */
+    #services { padding: 5rem 0; }
+    .section-label {
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ft-blue);
+      font-weight: 600;
+      margin-bottom: .75rem;
+      display: block;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+    }
+    .service-card {
+      background: var(--ft-surface);
+      border: 1px solid var(--ft-border);
+      border-radius: 16px;
+      padding: 2rem;
+      height: 100%;
+      transition: border-color .2s, transform .2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--ft-blue), var(--ft-accent));
+      opacity: 0;
+      transition: opacity .2s;
+    }
+    .service-card:hover { border-color: rgba(0,87,255,0.3); transform: translateY(-4px); }
+    .service-card:hover::before { opacity: 1; }
+    .service-card .icon-wrap {
+      width: 48px; height: 48px;
+      background: var(--ft-blue-glow);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      color: var(--ft-blue);
+      margin-bottom: 1.25rem;
+    }
+    .service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: .6rem; }
+    .service-card p  { font-size: .9rem; color: var(--ft-text-muted); line-height: 1.65; margin: 0; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+    .tag {
+      font-size: .72rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--ft-border);
+      border-radius: 99px;
+      padding: .2rem .65rem;
+      color: var(--ft-text-muted);
+    }
+
+    /* ── SAAS HIGHLIGHT ── */
+    .saas-section {
+      padding: 5rem 0;
+      background: var(--ft-surface);
+      border-top: 1px solid var(--ft-border);
+      border-bottom: 1px solid var(--ft-border);
+    }
+    .saas-badge {
+      display: inline-block;
+      background: rgba(0,229,255,0.1);
+      border: 1px solid rgba(0,229,255,0.3);
+      color: var(--ft-accent);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .3rem .8rem;
+      border-radius: 99px;
+      margin-bottom: 1.25rem;
+    }
+    .saas-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: .85rem;
+      margin-bottom: 1.1rem;
+    }
+    .saas-feature .check {
+      color: var(--ft-accent);
+      font-size: 1.1rem;
+      margin-top: .1rem;
+      flex-shrink: 0;
+    }
+    .saas-feature p { margin: 0; font-size: .95rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
+    .saas-feature strong { color: #fff; }
+    .saas-card-right {
+      background: linear-gradient(135deg, rgba(0,87,255,0.12), rgba(0,229,255,0.06));
+      border: 1px solid rgba(0,87,255,0.25);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+    .saas-stat { margin-bottom: 1.5rem; }
+    .saas-stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1;
+      color: #fff;
+    }
+    .saas-stat-num span { color: var(--ft-accent); }
+    .saas-stat-desc { font-size: .88rem; color: var(--ft-text-muted); margin-top: .25rem; }
+
+    /* ── CASE STUDY ── */
+    .case-section { padding: 5rem 0; }
+    .case-card {
+      background: var(--ft-surface);
+      border: 1px solid var(--ft-border);
+      border-radius: 20px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .case-card::after {
+      content: '"';
+      position: absolute;
+      right: 2rem; top: -1rem;
+      font-size: 12rem;
+      font-family: 'Syne', sans-serif;
+      color: var(--ft-blue-glow);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .case-industry {
+      display: inline-block;
+      background: var(--ft-blue-glow);
+      border: 1px solid rgba(0,87,255,0.3);
+      color: #7EB3FF;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .3rem .8rem;
+      border-radius: 99px;
+      margin-bottom: 1.5rem;
+    }
+    .case-card blockquote {
+      font-size: 1.15rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      border: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+    }
+    .case-result {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--ft-border);
+    }
+    .case-result-item { }
+    .case-result-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--ft-accent);
+    }
+    .case-result-label { font-size: .82rem; color: var(--ft-text-muted); }
+
+    /* ── INDUSTRIES ── */
+    .industries-section { padding: 5rem 0; background: var(--ft-surface); border-top: 1px solid var(--ft-border); }
+    .industry-pill {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--ft-border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      transition: border-color .2s, background .2s;
+      cursor: default;
+    }
+    .industry-pill:hover {
+      border-color: rgba(0,87,255,0.35);
+      background: rgba(0,87,255,0.07);
+    }
+    .industry-pill i { font-size: 1.3rem; color: var(--ft-blue); }
+    .industry-pill span { font-size: .95rem; font-weight: 500; }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 6rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-glow {
+      position: absolute;
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, var(--ft-blue-glow) 0%, transparent 70%);
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .cta-section h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .cta-section p { font-size: 1.1rem; color: var(--ft-text-muted); max-width: 500px; margin: 0 auto 2rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ft-surface);
+      border-top: 1px solid var(--ft-border);
+    }
+    footer .footer-brand { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
+    footer .footer-brand span { color: var(--ft-blue); }
+    footer p, footer address { font-size: .88rem; color: var(--ft-text-muted); font-style: normal; line-height: 1.7; }
+    footer h6 { font-family: 'Syne', sans-serif; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: .75rem; }
+    footer a { color: var(--ft-text-muted); text-decoration: none; font-size: .9rem; transition: color .2s; }
+    footer a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid var(--ft-border); padding: 1.5rem 0; font-size: .82rem; color: rgba(255,255,255,0.3); }
+
+    /* ── WHATSAPP FLOAT ── */
+    .whatsapp {
+      position: fixed;
+      bottom: 1.5rem; right: 1.5rem;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      color: #fff;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform .2s, box-shadow .2s;
+      text-decoration: none;
+    }
+    .whatsapp:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); color: #fff; }
+  </style>
 </head>
 
 <body data-bs-theme="dark">
-    <header class="sticky-top border-bottom">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand user-select-none ps-3" href="#">
-                    <span name="focus">Focus</span><span name="tech">Tech</span>
+
+  <!-- ── NAV ── -->
+  <header class="sticky-top">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg py-3">
+        <a class="navbar-brand" href="#">
+          <span name="focus">Focus</span><span name="tech">Tech</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar" aria-label="Menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title">FocusTech</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 gap-1">
+              <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+              <li class="nav-item"><a class="nav-link" href="#saas">Producto</a></li>
+              <li class="nav-item"><a class="nav-link" href="#casos">Casos de éxito</a></li>
+              <li class="nav-item"><a class="nav-link" href="#industrias">Industrias</a></li>
+              <li class="nav-item ms-lg-3">
+                <a class="btn btn-primary btn-sm px-3" href="https://wa.me/5493487534614?text=Hola%20vi%20la%20web%20y%20quiero%20una%20revision%20de%20infraestructura" target="_blank">
+                  Hablar con un experto
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        </li>
-                       <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#services">Servicios</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="https://wa.me/5493487534614" target="_blank"
-                                    rel="noopener noreferrer">Contacto</a>
-                            </li>
-                        </ul>                 
-                    <div>
-            </nav>
+              </li>
+            </ul>
+          </div>
         </div>
-    </header>
+      </nav>
+    </div>
+  </header>
 
-    <section id="home">
-        <div class="container">
-            <div id="home-content" class="row flex-lg-row-reverse align-items-center p-3 py-md-5">
-                <div class="position-relative d-none d-lg-flex col-lg-6">
-                    <!-- <div class="ball-home"></div> -->
-                    <img src="./assets/img/img-0-min.webp" class="d-block mx-lg-auto img-fluid animated-image"
-                        loading="lazy" alt="Imagen de presentacion con los principales productos y servicios">
-                </div>
-                <div class="col-lg-6 text-center text-lg-start px-3">
-                    <h5> Siempre con vos! </h5>
-                    <h1 class="animated-title display-5 mb-3">
-                     Mantenemos tus sistemas funcionando sin caídas
-                    </h1>
-                    Infraestructura, bases de datos y cloud gestionados para empresas que no pueden fallar
-                    <p class="lead">
-                    </p>
-                 <div class="falling-text">
-                        <p class="lead"> Ayudamos a empresas a evitar caídas, lentitud y pérdida de datos en sus sistemas. </p>
-                        <p class="lead"> Monitoreamos, optimizamos y gestionamos infraestructura, bases de datos y cloud. </p>
-                        <p class="lead"> Abordamos cada desafío con una mirada estratégica, combinando una perspectiva global con un enfoque específico, según la complejidad del caso.</p>
-                        <p class="lead d-none d-lg-flex"> Contamos con un equipo de profesionales altamente calificados, conformado por ingenieros y técnicos especializados, comprometidos con ofrecer respuestas eficaces, innovadoras y a medida de cada necesidad.</p>
-                        <a class="btn btn-primary mt-3" href="https://wa.me/5493487534614">Solicitar revisión gratuita</a>
-                    </div>
-                </div>
-
-                <div class="logo-slider">
-                    <div class="logos-slide">
-                        <img src="./assets/img/logo-diprem.webp" alt="logo cliente diprem">
-                        <img src="./assets/img/logo-apiba.webp" alt="logo cliente apiba">
-                        <img src="./assets/img/logo-uom.webp" alt="logo cliente uom">
-                        <img src="./assets/img/logo-itport.webp" alt="logo cliente itport">
-                        <img src="./assets/img/logo-utn.webp" alt="logo cliente utn">
-                        <img src="./assets/img/logo-zarate.webp" alt="logo cliente zarate">
-                        <img src="./assets/img/logo-campana-noticias.webp" alt="logo campana noticias">
-                    </div>
-                </div>
-            </div>
+  <!-- ── HERO ── -->
+  <section id="home">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="container py-5 position-relative">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="badge-pill">⚡ Infraestructura · Cloud · Software a medida</div>
+          <h1 class="hero-title mb-4">
+            Tu sistema caído<br>es <em>plata que perdés</em><br>ahora mismo
+          </h1>
+          <p class="hero-sub mb-4">
+            En FocusTech gestionamos infraestructura, bases de datos y cloud para empresas que no pueden permitirse caídas ni pérdida de datos. Monitoreo proactivo, respuesta real.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a class="btn btn-primary" href="https://wa.me/5493487534614?text=Hola%20vi%20la%20web%20y%20quiero%20una%20revision%20de%20infraestructura" target="_blank">
+              <i class="bi bi-whatsapp me-2"></i>Revisión gratuita de infraestructura
+            </a>
+            <a class="btn btn-outline-light" href="#casos">Ver casos de éxito</a>
+          </div>
         </div>
-    </section>
-
-     <section id="services">
-        <div class="container">
-            <div class="row my-5">
-                <div class="col-12 col-md-6">
-                    <div class="position-relative lead rounded bg-body-tertiary  mx-4 p-4 pb-lg-0">
-                        <!-- <div class="ball-service-1"></div> -->
-                        <h2 class="display-6 text-center"> Software </h2>
-                        <p class="text-center"> Creación de aplicaciones a medida, implementación de ERP/CRM, desarrollo
-                            de páginas web y plataformas de e-commerce, así como community management </p>
-                        <div class="d-none d-lg-block mt-5 w-100 px-5">
-                            <img src="./assets/img/img-17-min.webp" class="w-100 rounded-top"
-                                alt="imagen del servicio de desarrollo de aplicaciones">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 mt-5 mt-md-0">
-                    <div class="lead rounded bg-dark-alt mx-4 p-4 pb-lg-0">
-                        <h2 class="display-6 text-center"> Infraestructura </h2>
-                        <p class="text-center">
-                            Gestión completa de servidores, cloud (AWS/Azure) y redes para asegurar disponibilidad y estabilidad de sistemas críticos.
-                        </p>
-                    <div class="d-none d-lg-block mt-5 w-100 px-5">
-                            <img src="./assets/img/img-14-min.webp" class="w-100 rounded-top"
-                                alt="imagen del servicio de infraestructura informatica">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <hr class="m-0">
-
-            <div class="row my-5">
-                <div class="col-12 col-md-6 order-md-2">
-                    <div class="position-relative lead rounded bg-body-tertiary mx-4 p-4 pb-lg-0">
-                        <!-- <div class="ball-service-2"></div> -->
-                        <h2 class="display-6 text-center"> Bases de datos </h2>
-                        <p class="text-center">
-                            Optimización de rendimiento, monitoreo, backups y resolución de problemas en Oracle, PostgreSQL, SQLSERVER, MySQL y MongoDB.
-                        </p>
-                        <div class="d-none d-lg-block mt-5 w-100 px-5">
-                            <img src="./assets/img/img-15-min.webp" class="w-100 rounded-top"
-                                alt="imagen del servicio de data engineering">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 order-md-1 mt-5 mt-md-0">
-                    <div class="lead rounded bg-dark-alt mx-4 p-4 pb-lg-0">
-                        <h2 class="display-6 text-center"> Soporte Proactivo </h2>
-                        <p class="text-center"> Detectamos problemas antes de que impacten y actuamos rápidamente para evitar caídas y pérdida de información.
-                            cliente </p>
-                        <div class="d-none d-lg-block mt-5 w-100 px-5">
-                            <img src="./assets/img/img-16-min.webp" class="w-100 rounded-top"
-                                alt="imagen del servicio de consultoria informatica">
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-lg-6 d-none d-lg-block">
+          <img src="./assets/img/img-0-min.webp" class="img-fluid animated-image" alt="FocusTech infraestructura y cloud">
         </div>
-    </section>
+      </div>
 
-    <section class="container text-center my-5">
-  <h2>¿Tu sistema está en riesgo?</h2>
-  <p>
-  Muchas empresas no saben si sus backups funcionan o si su infraestructura puede soportar crecimiento.
-  </p>
-
-  <p>
-  Si tu sistema es importante para tu operación, podemos ayudarte a evitar problemas antes de que ocurran.
-  </p>
-
-  <a class="btn btn-primary" href="https://wa.me/5493487534614">
-  Solicitar revisión gratuita
-  </a>
-</section>
-
-    <footer>
-        <div class="container pt-5">
-            <div
-                class="d-flex flex-column align-items-center flex-md-row justify-content-md-between align-items-md-end  ">
-                <div class="d-flex flex-column align-items-center align-items-md-start">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.3974821286065!2d-59.03254075210574!3d-34.11057252230224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bb0b47d527e44f%3A0x515bf34d823aadcf!2sPellegrini%202136%2C%20B2800KGN%20Z%C3%A1rate%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1718431544632!5m2!1ses!2sar"
-                        width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <span class="py-2 pb-md-0"> Pellegrini 2136, Zárate, Buenos Aires </span>
-                </div>
-                <div class="text-center text-md-end">
-                    <h5>Télefono</h5>
-                    <p> +54 9 3487 534614 </p>
-                    <h5> Mail </h5>
-                    <p> info-ventas@focustech.com.ar </p>
-                </div>
-            </div>
-            <div class="d-flex flex-column align-items-center flex-md-row justify-content-between py-3 my-3 border-top">
-                <p>&copy; 2024 FocusTech SAS. All rights reserved.</p>
-                <ul class="list-unstyled d-flex">
-                    <li class="ms-3">
-                        <a class="link-body-emphasis" href="https://www.linkedin.com/company/78985575/" target="_blank">
-                            <i class="bi bi-linkedin"></i> </a>
-                    </li>
-                    <li class="ms-3">
-                        <a class="link-body-emphasis" href="https://www.instagram.com/focus.tech/" target="_blank"> <i
-                                class="bi bi-instagram"></i> </a>
-                    </li>
-                    <li class="ms-3">
-                        <a class="link-body-emphasis" href="https://www.facebook.com/search/top?q=focus.tech"
-                            target="_blank"> <i class="bi bi-facebook"></i> </a>
-                    </li>
-                </ul>
-            </div>
+      <!-- CLIENTS -->
+      <div class="mt-5 pt-3">
+        <p class="clients-label">Confían en nosotros</p>
+        <div class="logo-slider">
+          <div class="logos-slide">
+            <img src="./assets/img/logo-diprem.webp" alt="Diprem">
+            <img src="./assets/img/logo-apiba.webp" alt="Apiba">
+            <img src="./assets/img/logo-uom.webp" alt="UOM">
+            <img src="./assets/img/logo-itport.webp" alt="Itport">
+            <img src="./assets/img/logo-utn.webp" alt="UTN">
+            <img src="./assets/img/logo-zarate.webp" alt="Zárate">
+            <img src="./assets/img/logo-campana-noticias.webp" alt="Campana Noticias">
+            <!-- duplicate for infinite loop -->
+            <img src="./assets/img/logo-diprem.webp" alt="Diprem">
+            <img src="./assets/img/logo-apiba.webp" alt="Apiba">
+            <img src="./assets/img/logo-uom.webp" alt="UOM">
+            <img src="./assets/img/logo-itport.webp" alt="Itport">
+            <img src="./assets/img/logo-utn.webp" alt="UTN">
+            <img src="./assets/img/logo-zarate.webp" alt="Zárate">
+            <img src="./assets/img/logo-campana-noticias.webp" alt="Campana Noticias">
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <a class="whatsapp" href="https://wa.me/5493487534614" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-whatsapp"></i>
-    </a>
+  <!-- ── STATS BAR ── -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-6 col-md-3 stat-item">
+          <div class="stat-number">8<span>+</span></div>
+          <div class="stat-label">Clientes activos</div>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <div class="stat-number">5<span>+</span></div>
+          <div class="stat-label">Años de experiencia</div>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <div class="stat-number">99<span>%</span></div>
+          <div class="stat-label">Uptime garantizado</div>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <div class="stat-number">&lt;2<span>h</span></div>
+          <div class="stat-label">Tiempo de respuesta</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <script src="./assets/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="./assets/js/scripts.js" defer></script>
+  <!-- ── PAIN POINTS ── -->
+  <section class="pain-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label">¿Te suena familiar?</span>
+        <h2 class="section-title">Los problemas que no deberían<br>estar pasando en tu empresa</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="pain-card">
+            <i class="bi bi-exclamation-triangle pain-icon"></i>
+            <h4>El sistema se cayó un lunes a las 8am</h4>
+            <p>Y nadie supo hasta que los empleados empezaron a llamar. Sin monitoreo proactivo, siempre llegás tarde.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="pain-card">
+            <i class="bi bi-clock-history pain-icon"></i>
+            <h4>Los backups existen, pero nadie sabe si funcionan</h4>
+            <p>Hasta que necesitás restaurar y descubrís que el último backup tiene 3 semanas.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="pain-card">
+            <i class="bi bi-graph-up pain-icon"></i>
+            <h4>La base de datos cada vez más lenta</h4>
+            <p>Queries que antes tardaban 2 segundos, ahora tardan 30. Nadie sabe por qué ni cómo arreglarlo.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="pain-card">
+            <i class="bi bi-shield-x pain-icon"></i>
+            <h4>La nube crece sola y nadie controla los costos</h4>
+            <p>AWS o Azure facturan cada vez más. Recursos activos que nadie usa, configuraciones subóptimas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "FocusTech",
-          "url": "https://focustech.com.ar/",
-          "logo": "https://focustech.com.ar/assets/img/logo.png",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+54 9 3487 534614",
-            "contactType": "Customer Service",
-            "email": "edigde@gmail.com"
-          }
-        }
-    </script>
+  <!-- ── SERVICES ── -->
+  <section id="servicios">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label">Lo que hacemos</span>
+        <h2 class="section-title">Soluciones concretas para<br>problemas reales</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+            <div class="icon-wrap"><i class="bi bi-hdd-stack"></i></div>
+            <h3>Infraestructura & Cloud</h3>
+            <p>Gestión completa de servidores, redes y cloud. Configuramos, monitoreamos y optimizamos para que tu operación no pare.</p>
+            <div class="tag-list">
+              <span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">VPN</span><span class="tag">Redes</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+            <div class="icon-wrap"><i class="bi bi-database"></i></div>
+            <h3>Bases de Datos</h3>
+            <p>Optimización, monitoreo y backups en Oracle, PostgreSQL, SQL Server y MongoDB. Resolvemos problemas antes de que exploten.</p>
+            <div class="tag-list">
+              <span class="tag">Oracle</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">SQL Server</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+            <div class="icon-wrap"><i class="bi bi-code-square"></i></div>
+            <h3>Software a Medida</h3>
+            <p>Desarrollamos aplicaciones y sistemas adaptados a tu operación. Desde webs institucionales hasta plataformas complejas de gestión.</p>
+            <div class="tag-list">
+              <span class="tag">Web</span><span class="tag">ERP</span><span class="tag">CRM</span><span class="tag">SaaS</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+            <div class="icon-wrap"><i class="bi bi-headset"></i></div>
+            <h3>Soporte Proactivo</h3>
+            <p>No esperamos que llames. Detectamos y actuamos antes de que el problema llegue a tus usuarios o a tu equipo.</p>
+            <div class="tag-list">
+              <span class="tag">Monitoreo 24/7</span><span class="tag">Respuesta &lt;2h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZV3B36H75"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+  <!-- ── SAAS HIGHLIGHT ── -->
+  <section id="saas" class="saas-section">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <div class="saas-badge">Producto propio</div>
+          <h2 class="section-title mb-4">Control horario y firma digital de recibos para empresas con dotación compleja</h2>
+          <p style="color: var(--ft-text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem;">
+            Desarrollamos un sistema propio para gestión de asistencia por turnos y firma digital de recibos de sueldo. Ya funciona en producción en el sector portuario. Ahora lo llevamos a más industrias.
+          </p>
+          <div class="saas-feature">
+            <i class="bi bi-check-circle-fill check"></i>
+            <p><strong>Control horario por turnos</strong> — Rotaciones, horas extra, ausencias y alertas en tiempo real para dotaciones de cualquier tamaño.</p>
+          </div>
+          <div class="saas-feature">
+            <i class="bi bi-check-circle-fill check"></i>
+            <p><strong>Recibos de sueldo digitales con firma</strong> — El empleado firma desde su celular. El empleador tiene el registro legal completo.</p>
+          </div>
+          <div class="saas-feature">
+            <i class="bi bi-check-circle-fill check"></i>
+            <p><strong>Sin papel, sin errores, sin demoras</strong> — Integración con tu proceso de liquidación existente. Implementación en días, no en meses.</p>
+          </div>
+          <div class="saas-feature">
+            <i class="bi bi-check-circle-fill check"></i>
+            <p><strong>Probado en el sector portuario</strong> — En uso real con múltiples empresas en la zona norte del Gran Buenos Aires.</p>
+          </div>
+          <a class="btn btn-primary mt-3" href="https://wa.me/5493487534614?text=Quiero%20conocer%20el%20sistema%20de%20control%20horario%20y%20recibos%20digitales" target="_blank">
+            Quiero ver una demo
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <div class="saas-card-right">
+            <div class="saas-stat">
+              <div class="saas-stat-num">2<span>+</span></div>
+              <div class="saas-stat-desc">Empresas portuarias usando el sistema hoy</div>
+            </div>
+            <div class="saas-stat">
+              <div class="saas-stat-num">0<span> papel</span></div>
+              <div class="saas-stat-desc">Proceso 100% digital, desde la liquidación hasta la firma del empleado</div>
+            </div>
+            <div class="saas-stat">
+              <div class="saas-stat-num">&lt;7<span> días</span></div>
+              <div class="saas-stat-desc">Tiempo de implementación promedio</div>
+            </div>
+            <hr style="border-color: var(--ft-border); margin: 1.5rem 0;">
+            <p style="font-size: .88rem; color: var(--ft-text-muted); margin: 0;">
+              Ideal para empresas de <strong style="color: rgba(255,255,255,0.7);">logística, construcción, seguridad, salud y manufactura</strong> con personal por turnos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        gtag('config', 'G-QZV3B36H75');
-    </script>
+  <!-- ── CASE STUDY ── -->
+  <section id="casos" class="case-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label">Casos de éxito</span>
+        <h2 class="section-title">Resultados reales,<br>no promesas</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="case-card h-100">
+            <div class="case-industry">⚓ Sector Portuario</div>
+            <blockquote>
+              Implementamos el sistema de control horario y firma digital de recibos para dos empresas del sector portuario en la zona norte del Gran Buenos Aires, eliminando por completo el proceso en papel y reduciendo los tiempos de cierre de liquidación de semanas a días.
+            </blockquote>
+            <div class="case-result">
+              <div class="case-result-item">
+                <div class="case-result-num">100%</div>
+                <div class="case-result-label">Proceso digitalizado</div>
+              </div>
+              <div class="case-result-item">
+                <div class="case-result-num">0</div>
+                <div class="case-result-label">Papel en el proceso</div>
+              </div>
+              <div class="case-result-item">
+                <div class="case-result-num">2</div>
+                <div class="case-result-label">Empresas en producción</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="case-card h-100">
+            <div class="case-industry">🏥 Sector Salud & Mutual</div>
+            <blockquote>
+              Desarrollamos y mantenemos la presencia digital de un sanatorio y una mutual, garantizando disponibilidad continua de sus plataformas institucionales y sistemas de comunicación con socios y pacientes.
+            </blockquote>
+            <div class="case-result">
+              <div class="case-result-item">
+                <div class="case-result-num">99%</div>
+                <div class="case-result-label">Uptime sostenido</div>
+              </div>
+              <div class="case-result-item">
+                <div class="case-result-num">2</div>
+                <div class="case-result-label">Organizaciones de salud</div>
+              </div>
+              <div class="case-result-item">
+                <div class="case-result-num">24/7</div>
+                <div class="case-result-label">Monitoreo activo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INDUSTRIES ── -->
+  <section id="industrias" class="industries-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label">Con quiénes trabajamos</span>
+        <h2 class="section-title">Conocemos tu industria</h2>
+        <p style="color: var(--ft-text-muted); max-width: 520px; margin: 1rem auto 0; font-size: 1rem;">
+          No somos generalistas. Tenemos experiencia real en sectores donde los sistemas son críticos y no pueden fallar.
+        </p>
+      </div>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="industry-pill">
+            <i class="bi bi-anchor"></i>
+            <span>Puertos & Logística</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="industry-pill">
+            <i class="bi bi-heart-pulse"></i>
+            <span>Salud & Mutuales</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="industry-pill">
+            <i class="bi bi-people"></i>
+            <span>Sindicatos & Gremios</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="industry-pill">
+            <i class="bi bi-building"></i>
+            <span>Industria & Manufactura</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="industry-pill">
+            <i class="bi bi-shield-check"></i>
+            <span>Seguridad Privada</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="industry-pill">
+            <i class="bi bi-truck"></i>
+            <span>Transporte</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="industry-pill">
+            <i class="bi bi-mortarboard"></i>
+            <span>Educación</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="industry-pill">
+            <i class="bi bi-hammer"></i>
+            <span>Construcción</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="container position-relative">
+      <h2>¿Tu sistema está en riesgo<br>y no lo sabés?</h2>
+      <p>Muchas empresas descubren sus problemas de infraestructura cuando ya es tarde. Una revisión gratuita puede evitarte una crisis.</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center">
+        <a class="btn btn-primary" href="https://wa.me/5493487534614?text=Hola%20vi%20la%20web%20y%20quiero%20una%20revision%20de%20infraestructura" target="_blank">
+          <i class="bi bi-whatsapp me-2"></i>Solicitar revisión gratuita
+        </a>
+        <a class="btn btn-outline-light" href="mailto:info-ventas@focustech.com.ar">
+          <i class="bi bi-envelope me-2"></i>Escribirnos por mail
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container py-5">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="footer-brand">Focus<span>Tech</span></div>
+          <p>Infraestructura, bases de datos y software a medida para empresas que no pueden fallar.</p>
+          <div class="d-flex gap-3 mt-3">
+            <a href="https://www.linkedin.com/company/78985575/" target="_blank"><i class="bi bi-linkedin fs-5"></i></a>
+            <a href="https://www.instagram.com/focus.tech/" target="_blank"><i class="bi bi-instagram fs-5"></i></a>
+            <a href="https://www.facebook.com/search/top?q=focus.tech" target="_blank"><i class="bi bi-facebook fs-5"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Servicios</h6>
+          <div class="d-flex flex-column gap-2">
+            <a href="#servicios">Infraestructura</a>
+            <a href="#servicios">Bases de datos</a>
+            <a href="#servicios">Software a medida</a>
+            <a href="#servicios">Soporte proactivo</a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Producto</h6>
+          <div class="d-flex flex-column gap-2">
+            <a href="#saas">Control horario</a>
+            <a href="#saas">Recibos digitales</a>
+            <a href="#casos">Casos de éxito</a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <h6>Contacto</h6>
+          <address>
+            <div class="mb-2"><i class="bi bi-geo-alt me-2" style="color: var(--ft-blue);"></i>Pellegrini 2136, Zárate, Buenos Aires</div>
+            <div class="mb-2"><i class="bi bi-telephone me-2" style="color: var(--ft-blue);"></i>+54 9 3487 534614</div>
+            <div><i class="bi bi-envelope me-2" style="color: var(--ft-blue);"></i>info-ventas@focustech.com.ar</div>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span>&copy; 2025 FocusTech SAS. Todos los derechos reservados.</span>
+        <span>Zárate, Buenos Aires, Argentina</span>
+      </div>
+    </div>
+  </footer>
+
+ <a class="whatsapp" href="https://wa.me/5493487534614" target="_blank">
+   <i class="bi bi-whatsapp" style="font-size: 30px; color: white;"></i>
+ </a>
+
+  <script src="./assets/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="./assets/js/scripts.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "FocusTech",
+    "url": "https://focustech.com.ar/",
+    "logo": "https://focustech.com.ar/assets/img/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Pellegrini 2136",
+      "addressLocality": "Zárate",
+      "addressRegion": "Buenos Aires",
+      "addressCountry": "AR"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+54-9-3487-534614",
+      "contactType": "sales",
+      "email": "info-ventas@focustech.com.ar"
+    }
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZV3B36H75"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-QZV3B36H75');
+  </script>
 </body>
-
 </html>
