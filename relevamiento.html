@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contanos qué necesitás y armamos una solución a medida para tu empresa — FocusTech">
+  <title>Relevamiento de Requerimientos — FocusTech</title>
+  <link rel="icon" href="./assets/img/logo.webp" type="image/x-icon">
+
+  <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ft-blue: #0057FF;
+      --ft-blue-glow: rgba(0, 87, 255, 0.18);
+      --ft-accent: #00E5FF;
+      --ft-dark: #080C14;
+      --ft-surface: #0F1520;
+      --ft-surface2: #141b2d;
+      --ft-border: rgba(255,255,255,0.07);
+      --ft-border-mid: rgba(255,255,255,0.12);
+      --ft-text-muted: rgba(255,255,255,0.5);
+    }
+    body { font-family:'DM Sans',sans-serif; background-color:var(--ft-dark); color:#E8EDF5; }
+    h1,h2,h3,h4,h5,.navbar-brand { font-family:'Syne',sans-serif; }
+
+    /* NAV */
+    header { background:rgba(8,12,20,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--ft-border)!important; }
+    .navbar-brand span[name="focus"] { color:#fff; font-weight:800; }
+    .navbar-brand span[name="tech"]  { color:var(--ft-blue); font-weight:800; }
+    .nav-link { color:rgba(255,255,255,0.7)!important; font-size:.95rem; transition:color .2s; }
+    .nav-link:hover { color:#fff!important; }
+    .btn-primary { background:var(--ft-blue); border:none; font-family:'Syne',sans-serif; font-weight:600; padding:.75rem 1.75rem; border-radius:8px; font-size:1rem; transition:transform .15s,box-shadow .15s; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(0,87,255,0.4); background:var(--ft-blue); }
+    .btn-outline-light { font-family:'Syne',sans-serif; font-weight:600; padding:.75rem 1.75rem; border-radius:8px; font-size:1rem; border-color:var(--ft-border); color:rgba(255,255,255,0.7); transition:all .15s; }
+    .btn-outline-light:hover { border-color:rgba(255,255,255,0.4); color:#fff; background:transparent; }
+
+    /* HERO */
+    .page-hero { padding:5rem 0 4rem; position:relative; overflow:hidden; border-bottom:1px solid var(--ft-border); }
+    .hero-grid-bg { position:absolute; inset:0; background-image:linear-gradient(var(--ft-border) 1px,transparent 1px),linear-gradient(90deg,var(--ft-border) 1px,transparent 1px); background-size:48px 48px; mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 40%,transparent 100%); pointer-events:none; }
+    .hero-glow { position:absolute; width:500px; height:500px; background:radial-gradient(circle,var(--ft-blue-glow) 0%,transparent 70%); top:-80px; right:-80px; pointer-events:none; }
+    .badge-pill { display:inline-block; background:rgba(0,87,255,0.12); border:1px solid rgba(0,87,255,0.35); color:var(--ft-accent); font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:.35rem .9rem; border-radius:99px; margin-bottom:1.25rem; }
+
+    /* PROGRESS */
+    .progress-wrap { background:var(--ft-surface); border-bottom:1px solid var(--ft-border); padding:10px 0; position:sticky; top:60px; z-index:90; }
+    .progress-inner { display:flex; align-items:center; gap:14px; }
+    .ft-progress { flex:1; height:4px; background:var(--ft-border-mid); border-radius:2px; overflow:hidden; }
+    .ft-progress-fill { height:4px; background:var(--ft-blue); border-radius:2px; transition:width 0.4s ease; width:0%; }
+    .progress-pct { font-size:12px; color:var(--ft-text-muted); white-space:nowrap; min-width:90px; text-align:right; font-family:'Syne',sans-serif; }
+
+    /* CARDS */
+    .form-area { padding:3rem 0 5rem; }
+    .ft-card { background:var(--ft-surface); border:1px solid var(--ft-border); border-radius:12px; margin-bottom:1.25rem; overflow:hidden; }
+    .ft-card-header { background:var(--ft-surface2); border-bottom:1px solid var(--ft-border); padding:14px 20px; display:flex; align-items:center; gap:10px; }
+    .ft-card-icon { width:30px; height:30px; background:rgba(0,87,255,0.15); border:1px solid rgba(0,87,255,0.3); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; }
+    .ft-card-header h3 { font-size:13px; font-weight:700; color:rgba(255,255,255,0.9); letter-spacing:.06em; text-transform:uppercase; margin:0; }
+    .ft-card-body { padding:22px 20px; }
+
+    /* FIELDS */
+    .ft-field { margin-bottom:1.1rem; }
+    .ft-field:last-child { margin-bottom:0; }
+    .ft-field label { display:block; font-size:13px; font-weight:500; color:rgba(255,255,255,0.7); margin-bottom:7px; }
+    .ft-field label .req { color:var(--ft-accent); margin-left:2px; }
+    .ft-field input,.ft-field textarea,.ft-field select { width:100%; font-family:'DM Sans',sans-serif; font-size:14px; color:#E8EDF5; background:rgba(255,255,255,0.04); border:1px solid var(--ft-border-mid); border-radius:8px; padding:11px 14px; transition:border-color .2s,background .2s; outline:none; -webkit-appearance:none; }
+    .ft-field input::placeholder,.ft-field textarea::placeholder { color:rgba(255,255,255,0.25); }
+    .ft-field input:focus,.ft-field textarea:focus,.ft-field select:focus { border-color:var(--ft-blue); background:rgba(0,87,255,0.06); }
+    .ft-field textarea { min-height:90px; resize:vertical; line-height:1.6; }
+    .ft-field select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 13px center; padding-right:36px; cursor:pointer; }
+    .ft-field select option { background:#0F1520; color:#E8EDF5; }
+    .ft-field .hint { font-size:12px; color:var(--ft-text-muted); margin-top:5px; }
+
+    /* ACTIONS */
+    .form-actions { display:flex; gap:12px; margin-top:2rem; flex-wrap:wrap; }
+    .btn-clear { font-family:'DM Sans',sans-serif; background:transparent; color:rgba(255,255,255,0.4); border:1px solid var(--ft-border-mid); border-radius:8px; padding:12px 20px; font-size:14px; cursor:pointer; transition:all .2s; }
+    .btn-clear:hover { border-color:rgba(255,100,100,0.4); color:rgba(255,150,150,0.8); }
+
+    /* ERROR */
+    .ft-error { background:rgba(255,60,60,0.08); border:1px solid rgba(255,60,60,0.25); color:#ff8080; border-radius:8px; padding:12px 16px; font-size:13px; margin-top:1rem; display:none; }
+
+    /* SUCCESS */
+    #success-msg { display:none; }
+    .success-box { background:var(--ft-surface); border:1px solid rgba(0,229,255,0.2); border-radius:16px; padding:3rem; text-align:center; }
+    .success-icon { width:64px; height:64px; background:rgba(0,87,255,0.15); border:1px solid rgba(0,87,255,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; margin:0 auto 1.5rem; }
+    .success-box h2 { font-size:1.6rem; font-weight:800; margin-bottom:.75rem; }
+    .success-box p { color:var(--ft-text-muted); max-width:420px; margin:0 auto; }
+
+    /* FOOTER */
+    footer { background:var(--ft-surface); border-top:1px solid var(--ft-border); color:var(--ft-text-muted); font-size:.85rem; }
+    footer a { color:var(--ft-text-muted); text-decoration:none; transition:color .2s; }
+    footer a:hover { color:#fff; }
+    .footer-brand { font-family:'Syne',sans-serif; font-weight:800; font-size:1.3rem; color:#fff; margin-bottom:.5rem; }
+    .footer-brand span { color:var(--ft-blue); }
+    .footer-bottom { border-top:1px solid var(--ft-border); padding-top:1.5rem; margin-top:2rem; font-size:.8rem; }
+
+    /* WHATSAPP */
+    .whatsapp { position:fixed; bottom:24px; right:24px; z-index:999; width:52px; height:52px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(37,211,102,0.35); transition:transform .2s; }
+    .whatsapp:hover { transform:scale(1.08); }
+
+    @media (max-width:576px) {
+      .page-hero { padding:3rem 0 2.5rem; }
+      .ft-card-body { padding:16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="sticky-top">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg py-3">
+      <a class="navbar-brand" href="./index.html">
+        <span name="focus">Focus</span><span name="tech">Tech</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar" aria-label="Menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">FocusTech</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 gap-1">
+            <li class="nav-item"><a class="nav-link" href="./index.html#servicios">Servicios</a></li>
+            <li class="nav-item"><a class="nav-link" href="./index.html#saas">Producto</a></li>
+            <li class="nav-item"><a class="nav-link" href="./index.html#casos">Casos de éxito</a></li>
+            <li class="nav-item"><a class="nav-link" href="./index.html#industrias">Industrias</a></li>
+            <li class="nav-item ms-lg-2">
+              <a class="nav-link" href="./relevamiento.html" style="color:var(--ft-accent)!important;">
+                <i class="bi bi-file-text me-1"></i>Contanos qué necesitás
+              </a>
+            </li>
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-primary btn-sm px-3" href="https://wa.me/5493487534614?text=Hola%20vi%20la%20web%20y%20quiero%20una%20revision%20de%20infraestructura" target="_blank">
+                Hablar con un experto
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="container position-relative text-center">
+    <span class="badge-pill">📋 Desarrollo a medida</span>
+    <h1 class="mb-3" style="font-size:clamp(1.9rem,4vw,3rem); font-weight:800; letter-spacing:-.02em;">
+      Contanos qué necesita<br>tu empresa
+    </h1>
+    <p style="color:var(--ft-text-muted); max-width:520px; margin:0 auto; font-size:1.05rem; line-height:1.7;">
+      Completá este formulario y en menos de 24 horas te contactamos con una propuesta concreta para tu proyecto.
+    </p>
+  </div>
+</section>
+
+<div class="progress-wrap">
+  <div class="container">
+    <div class="progress-inner">
+      <div class="ft-progress"><div class="ft-progress-fill" id="progress"></div></div>
+      <div class="progress-pct" id="progress-label">0% completado</div>
+    </div>
+  </div>
+</div>
+
+<section class="form-area">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <div id="form-wrap">
+          <form id="relevamiento-form" action="https://formspree.io/f/xdabbaew" method="POST" novalidate>
+
+            <div class="ft-card">
+              <div class="ft-card-header">
+                <div class="ft-card-icon"><i class="bi bi-building" style="color:var(--ft-accent)"></i></div>
+                <h3>Datos de la empresa</h3>
+              </div>
+              <div class="ft-card-body">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="ft-field">
+                      <label>Nombre de la empresa <span class="req">*</span></label>
+                      <input type="text" name="empresa" placeholder="Ej: García & Asociados" required oninput="updateProgress()">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="ft-field">
+                      <label>Rubro / industria</label>
+                      <input type="text" name="rubro" placeholder="Ej: Comercio, salud, logística..." oninput="updateProgress()">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="ft-field">
+                      <label>Cantidad de usuarios del sistema</label>
+                      <input type="text" name="usuarios" placeholder="Ej: 15 empleados" oninput="updateProgress()">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="ft-field">
+                      <label>¿Tienen varias sucursales?</label>
+                      <select name="sucursales" onchange="updateProgress()">
+                        <option value="">Seleccioná una opción...</option>
+                        <option>No, una sola sede</option>
+                        <option>Sí, 2 a 5 sucursales</option>
+                        <option>Sí, más de 5 sucursales</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ft-card">
+              <div class="ft-card-header">
+                <div class="ft-card-icon"><i class="bi bi-exclamation-circle" style="color:var(--ft-accent)"></i></div>
+                <h3>El problema actual</h3>
+              </div>
+              <div class="ft-card-body">
+                <div class="ft-field">
+                  <label>¿Qué problema o necesidad los llevó a buscar este sistema? <span class="req">*</span></label>
+                  <textarea name="problema" placeholder="Describí la situación actual y qué dolor querés resolver..." required oninput="updateProgress()"></textarea>
+                </div>
+                <div class="ft-field">
+                  <label>¿Cómo lo manejan hoy?</label>
+                  <textarea name="hoy" placeholder="Ej: planillas de Excel, papel, otro software, nada..." oninput="updateProgress()"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="ft-card">
+              <div class="ft-card-header">
+                <div class="ft-card-icon"><i class="bi bi-check2-square" style="color:var(--ft-accent)"></i></div>
+                <h3>Funcionalidades requeridas</h3>
+              </div>
+              <div class="ft-card-body">
+                <div class="ft-field">
+                  <label>¿Qué debe hacer el sistema sí o sí? <span class="req">*</span></label>
+                  <textarea name="funciones_imprescindibles" placeholder="Listá las funcionalidades sin las cuales el sistema no te sirve..." required oninput="updateProgress()"></textarea>
+                  <div class="hint">Estas son las funcionalidades del MVP — lo mínimo viable para arrancar.</div>
+                </div>
+                <div class="ft-field">
+                  <label>¿Qué sería deseable pero no urgente?</label>
+                  <textarea name="funciones_opcionales" placeholder="Cosas que estarían buenas, pero pueden quedar para una segunda etapa..." oninput="updateProgress()"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="ft-card">
+              <div class="ft-card-header">
+                <div class="ft-card-icon"><i class="bi bi-people" style="color:var(--ft-accent)"></i></div>
+                <h3>Usuarios del sistema</h3>
+              </div>
+              <div class="ft-card-body">
+                <div class="ft-field">
+                  <label>¿Quiénes van a usar el sistema? (roles)</label>
+                  <input type="text" name="roles" placeholder="Ej: administrador, vendedor, gerente, cliente..." oninput="updateProgress()">
+                </div>
+                <div class="ft-field">
+                  <label>¿Necesitan distintos niveles de acceso?</label>
+                  <select name="permisos" onchange="updateProgress()">
+                    <option value="">Seleccioná una opción...</option>
+                    <option>Sí, cada rol ve y hace cosas distintas</option>
+                    <option>No, todos acceden a todo</option>
+                    <option>No lo sé todavía</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="ft-card">
+              <div class="ft-card-header">
+                <div class="ft-card-icon"><i class="bi bi-database" style="color:var(--ft-accent)"></i></div>
+                <h3>Datos e integraciones</h3>
+              </div>
+              <div class="ft-card-body">
+                <div class="ft-field">
+                  <label>¿Qué tipo de información va a manejar el sistema?</label>
+                  <textarea name="datos" placeholder="Ej: clientes, productos, pedidos, facturas, stock..." oninput="updateProgress()"></textarea>
+                </div>
+                <div class="ft-field">
+                  <label>¿Necesita conectarse con algún sistema existente?</label>
+                  <input type="text" name="integraciones" placeholder="Ej: Tango, MercadoLibre, AFIP, ninguno..." oninput="updateProgress()">
+                </div>
+              </div>
+            </div>
+
+            <div class="ft-card">
+              <div class="ft-card-header">
+                <div class="ft-card-icon"><i class="bi bi-bullseye" style="color:var(--ft-accent)"></i></div>
+                <h3>Prioridades y tiempos</h3>
+              </div>
+              <div class="ft-card-body">
+                <div class="ft-field">
+                  <label>¿Tienen fecha límite o urgencia?</label>
+                  <input type="text" name="fecha" placeholder="Ej: necesitamos algo para marzo, no hay fecha fija..." oninput="updateProgress()">
+                </div>
+                <div class="ft-field">
+                  <label>Si tuvieras que elegir las 3 cosas más importantes, ¿cuáles serían? <span class="req">*</span></label>
+                  <textarea name="top3" placeholder="1. &#10;2. &#10;3." required oninput="updateProgress()"></textarea>
+                  <div class="hint">Esto nos ayuda a saber qué priorizar en el prototipo inicial.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ft-card">
+              <div class="ft-card-header">
+                <div class="ft-card-icon"><i class="bi bi-person-circle" style="color:var(--ft-accent)"></i></div>
+                <h3>Datos de contacto</h3>
+              </div>
+              <div class="ft-card-body">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="ft-field">
+                      <label>Nombre y apellido <span class="req">*</span></label>
+                      <input type="text" name="nombre" placeholder="Tu nombre completo" required oninput="updateProgress()">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="ft-field">
+                      <label>Cargo en la empresa</label>
+                      <input type="text" name="cargo" placeholder="Ej: Gerente, Dueño, Jefe de sistemas..." oninput="updateProgress()">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="ft-field">
+                      <label>Correo electrónico <span class="req">*</span></label>
+                      <input type="email" name="email" placeholder="nombre@empresa.com" required oninput="updateProgress()">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="ft-field">
+                      <label>Teléfono / WhatsApp</label>
+                      <input type="tel" name="telefono" placeholder="+54 11 ..." oninput="updateProgress()">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ft-error" id="form-error">
+              <i class="bi bi-exclamation-triangle me-2"></i>
+              Por favor completá los campos obligatorios antes de enviar.
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary d-flex align-items-center gap-2" id="submit-btn">
+                <i class="bi bi-send"></i> Enviar relevamiento
+              </button>
+              <button type="button" class="btn-clear" onclick="limpiar()">
+                <i class="bi bi-trash3"></i> Limpiar
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        <div id="success-msg">
+          <div class="success-box">
+            <div class="success-icon"><i class="bi bi-check-lg" style="color:var(--ft-accent)"></i></div>
+            <h2>¡Recibimos tu consulta!</h2>
+            <p>En menos de 24 horas un especialista de Focus Tech se va a contactar con vos para avanzar en el proyecto.</p>
+            <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap">
+              <a href="https://wa.me/5493487534614" target="_blank" class="btn btn-primary">
+                <i class="bi bi-whatsapp me-2"></i>Hablar por WhatsApp
+              </a>
+              <a href="./index.html" class="btn btn-outline-light">Volver al inicio</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container py-5">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">Focus<span>Tech</span></div>
+        <p>Infraestructura, bases de datos y software a medida para empresas que no pueden fallar.</p>
+        <div class="d-flex gap-3 mt-3">
+          <a href="https://www.linkedin.com/company/78985575/" target="_blank"><i class="bi bi-linkedin fs-5"></i></a>
+          <a href="https://www.instagram.com/focus.tech/" target="_blank"><i class="bi bi-instagram fs-5"></i></a>
+          <a href="https://www.facebook.com/search/top?q=focus.tech" target="_blank"><i class="bi bi-facebook fs-5"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-4">
+        <h6>Servicios</h6>
+        <div class="d-flex flex-column gap-2">
+          <a href="./index.html#servicios">Infraestructura</a>
+          <a href="./index.html#servicios">Bases de datos</a>
+          <a href="./index.html#servicios">Software a medida</a>
+          <a href="./index.html#servicios">Soporte proactivo</a>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <h6>Contacto</h6>
+        <address>
+          <div class="mb-2"><i class="bi bi-geo-alt me-2" style="color:var(--ft-blue)"></i>Pellegrini 2136, Zárate, Buenos Aires</div>
+          <div class="mb-2"><i class="bi bi-telephone me-2" style="color:var(--ft-blue)"></i>+54 9 3487 534614</div>
+          <div><i class="bi bi-envelope me-2" style="color:var(--ft-blue)"></i>info-ventas@focustech.com.ar</div>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <span>&copy; 2025 FocusTech SAS. Todos los derechos reservados.</span>
+      <span>Zárate, Buenos Aires, Argentina</span>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/5493487534614" target="_blank">
+  <i class="bi bi-whatsapp" style="font-size:30px; color:white;"></i>
+</a>
+
+<script src="./assets/dist/js/bootstrap.bundle.min.js" defer></script>
+<script>
+const fieldNames = ['empresa','rubro','usuarios','sucursales','problema','hoy','funciones_imprescindibles','funciones_opcionales','roles','permisos','datos','integraciones','fecha','top3','nombre','cargo','email','telefono'];
+
+function updateProgress() {
+  const filled = fieldNames.filter(n => {
+    const el = document.querySelector(`[name="${n}"]`);
+    return el && el.value.trim() !== '';
+  }).length;
+  const pct = Math.round((filled / fieldNames.length) * 100);
+  document.getElementById('progress').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = pct + '% completado';
+}
+
+function limpiar() {
+  if (!confirm('¿Limpiar todo el formulario?')) return;
+  document.getElementById('relevamiento-form').reset();
+  updateProgress();
+}
+
+document.getElementById('relevamiento-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const errBox = document.getElementById('form-error');
+  errBox.style.display = 'none';
+
+  const required = this.querySelectorAll('[required]');
+  let valid = true;
+  required.forEach(f => { if (!f.value.trim()) { valid = false; } });
+  if (!valid) { errBox.style.display = 'block'; return; }
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Enviando...';
+
+  try {
+    const res = await fetch(this.action, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else { throw new Error(); }
+  } catch {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="bi bi-send"></i> Enviar relevamiento';
+    errBox.textContent = 'Hubo un error al enviar. Por favor escribinos a info-ventas@focustech.com.ar';
+    errBox.style.display = 'block';
+  }
+});
+</script>
+
+</body>
+</html>
